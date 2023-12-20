@@ -3,6 +3,6 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:8-jdk-slim
-COPY --from=build /target/FinTech APP.jar
+COPY --from=build /target/*.jar FinTech_APP.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","FinTech APP.jar"]
+ENTRYPOINT ["java","-jar","FinTech_APP.jar"]
